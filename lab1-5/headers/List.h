@@ -2,15 +2,15 @@
 #include <ostream>
 #include <iostream>
 
-struct Node
-{
+struct List_Node
+ {
   std::string name;
   int age;
-  Node* next;
+  List_Node* next;
 
 
 };
-using List=Node*;
+using List=List_Node*;
 
 bool empty(List& list);
 

@@ -1,4 +1,4 @@
-#include "Node.h"
+#include "List.h"
 bool empty(List& list)
 {
   return list==nullptr;
@@ -9,7 +9,7 @@ void append(List& list,const std::string& name,int age )
   
   if(empty(list))
     {
-      list=new Node{name,age};
+      list=new List_Node{name,age};
     }else
     {      
       List head=list;
@@ -17,7 +17,7 @@ void append(List& list,const std::string& name,int age )
 	{
 	  list=list->next;
 	}
-      list->next=new Node{name,age};
+      list->next=new List_Node{name,age};
       list=head;
     }
 }
@@ -26,10 +26,10 @@ void insert(List& list,const std::string& name,int age )
 {
   if(empty(list))
     {
-      list=new Node{name,age};
+      list=new List_Node{name,age};
     }else
     {      
-      list=new Node{name,age,list};
+      list=new List_Node{name,age,list};
     }
 }
 
@@ -104,15 +104,15 @@ List copy(List& list)
       return nullptr;
     }else
     {
-      return new Node{list->name,list->age,copy(list->next)};
+      return new List_Node{list->name,list->age,copy(list->next)};
     }
 }
 
 void swap(List& listA,List& listB)
 {
   List tmp=listA;
-  // listA=new Node{listB->name,listB->age,listB->next};
-  // listB=new Node{tmp->name,tmp->age,tmp->next};
+  // listA=new List_Node{listB->name,listB->age,listB->next};
+  // listB=new List_Node{tmp->name,tmp->age,tmp->next};
   listA=listB;
   listB=tmp;
 }
